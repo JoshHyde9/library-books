@@ -1,0 +1,19 @@
+@use "../../scss/partials/variables" as *;
+@use "../../scss/partials/mixins" as *;
+
+.gallery__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid grey;
+
+  @include media-queries($md, 99999999px) {
+    min-width: 338px;
+  }
+
+  &___info {
+    margin-top: 0.75rem;
+  }
+}
