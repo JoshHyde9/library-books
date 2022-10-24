@@ -10,10 +10,13 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   box-sizing: border-box;
+  width: 100%;
 }
 
 #root {
   height: 100vh;
+  width: inherit;
+  overflow-x: hidden;
 }
 
 h1,

@@ -1,0 +1,32 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 25px 20px -20px;
+  position: sticky;
+
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    padding: 0 1rem;
+    width: 100%;
+
+    input {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      outline: none;
+      border: 1px solid black;
+      width: 15rem;
+    }
+
+    button {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
