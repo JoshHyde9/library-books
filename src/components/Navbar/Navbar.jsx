@@ -1,18 +1,25 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 
 import styles from "./Navbar.module.scss";
 
-export const Navbar = () => {
-  const [search, setSearch] = useState("");
-
+export const Navbar = ({ search, setSearch, setBooks }) => {
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    const fetchBooks = async () => {
+      setBooks({ loading: true });
+      const response = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${search}`
+      );
 
-    console.log(search);
+      const data = await response.json();
+      setBooks({ data: data.items, loading: false });
+    };
+
+    fetchBooks();
+    event.preventDefault();
   };
 
   return (
@@ -27,4 +34,10 @@ export const Navbar = () => {
       </form>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  setSearch: PropTypes.func.isRequired,
+  setBooks: PropTypes.func.isRequired,
+  search: PropTypes.string.isRequired,
 };
