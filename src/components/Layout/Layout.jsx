@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { App } from "../../App";
+import { Home } from "../pages/Home/Home";
 
 import { Navbar } from "../Navbar/Navbar";
 
@@ -13,7 +13,7 @@ export const Layout = () => {
     <>
       <Navbar setBooks={setBooks} search={search} setSearch={setSearch} />
       <main className={styles.main}>
-        {React.cloneElement(<App />, { books })}
+        {React.cloneElement(<Home />, { books })}
       </main>
     </>
   );
