@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import styles from "./Navbar.module.scss";
 
@@ -24,6 +25,11 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
 
   return (
     <nav className={styles.nav}>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+      </ul>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           onChange={handleChange}
