@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import { Home } from "../pages/Home/Home";
+import React, { createContext, useState } from "react";
 
 import { Navbar } from "../Navbar/Navbar";
 
 import styles from "./Layout.module.scss";
 
-export const Layout = () => {
+export const BooksContext = createContext();
+
+export const Layout = ({ children }) => {
   const [search, setSearch] = useState("");
   const [books, setBooks] = useState({ books: null, loading: false });
 
   return (
     <>
       <Navbar setBooks={setBooks} search={search} setSearch={setSearch} />
-      <main className={styles.main}>
-        {React.cloneElement(<Home />, { books })}
-      </main>
+      <BooksContext.Provider value={books}>
+        <main className={styles.main}>{children}</main>
+      </BooksContext.Provider>
     </>
   );
 };
