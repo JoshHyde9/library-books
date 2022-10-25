@@ -24,7 +24,7 @@ export const Book = () => {
   }, []);
 
   if (loading) {
-    return <Loader hexColor="#ff00ff" />;
+    return <Loader width="100px" hexColor="ff00ff" />;
   }
 
   return (
