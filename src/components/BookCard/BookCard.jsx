@@ -9,7 +9,14 @@ export const BookCard = ({ volumeInfo }) => {
 
   return (
     <div className={styles.gallery__item}>
-      <img src={imageLinks.thumbnail} alt={title} />
+      <img
+        src={
+          imageLinks
+            ? imageLinks.thumbnail
+            : "https://placehold.jp/989898/ffffff/250x350.png?text=Cover%20not%20found"
+        }
+        alt={title}
+      />
       <div className={styles.gallery__item___info}>
         <h2>{title}</h2>
         <h3>

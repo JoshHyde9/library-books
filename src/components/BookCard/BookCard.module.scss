@@ -9,10 +9,6 @@
   padding: 1rem;
   border: 1px solid grey;
 
-  @include media-queries($md, 99999999px) {
-    min-width: 338px;
-  }
-
   &___info {
     margin-top: 0.75rem;
   }
