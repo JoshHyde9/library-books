@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .cover {
+    flex-grow: 1;
+  }
+  .info {
+    width: 70%;
+
+    .more__info {
+      display: flex;
+      flex-direction: row;
+
+      .rating {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .spacer {
+        margin: 0 0.5rem;
+        color: #999;
+      }
+    }
+
+    .description {
+      margin-top: 0.5rem;
+    }
+  }
+}
