@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
-
+/**
+ * @param {{hexColor: string, width: string}} props
+ */
 export const Loader = ({ hexColor, width }) => (
   <svg
     version="1.1"
