@@ -18,7 +18,7 @@ export const Home = () => {
   }
 
   if (loading && !data) {
-    return <Loader width="100px" hexColor="ff00ff" />;
+    return <Loader width="100px" hexColor="ab987a" />;
   }
 
   return (

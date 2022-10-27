@@ -3,18 +3,36 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  border-bottom: 1px solid black;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 25px 20px -20px;
+  border-bottom: 1px solid #ab987a;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 25px 20px -20px;
   position: fixed;
   width: 100%;
-  background-color: #fff;
+  background-color: #212121;
+  color: #fefefe;
 
   ul {
     list-style-type: none;
     li {
       a {
         text-decoration: none;
-        color: #000;
+        color: inherit;
+        position: relative;
+
+        &:hover::after {
+          transform: scaleX(1);
+        }
+        &::after {
+          background-color: #ab987a;
+          bottom: -5px;
+          content: "";
+          height: 1px;
+          left: 0;
+          position: absolute;
+          right: 0;
+          transform: scaleX(0);
+          transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+          width: 100%;
+        }
       }
     }
   }
@@ -38,7 +56,15 @@
 
     button {
       cursor: pointer;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.5rem;
+      background-color: #ab987a;
+      border: none;
+      border-radius: 15px;
+      transition: all ease-in-out 150ms;
+
+      &:hover {
+        background-color: lighten($color: #ab987a, $amount: 10);
+      }
     }
   }
 }

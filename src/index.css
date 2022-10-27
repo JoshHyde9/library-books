@@ -11,6 +11,8 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   width: 100%;
+  background-color: #212121;
+  color: #fefefe;
 }
 
 #root {

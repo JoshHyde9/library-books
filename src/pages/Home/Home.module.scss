@@ -7,10 +7,11 @@
   gap: 2rem;
   justify-items: center;
   margin: 0 1rem;
+  text-align: center;
 
   a {
     text-decoration: none;
-    color: #000;
+    color: inherit;
   }
   @include media-queries($md, 999999999px) {
     margin: 0 2rem;

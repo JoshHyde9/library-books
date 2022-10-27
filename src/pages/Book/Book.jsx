@@ -36,7 +36,7 @@ export const Book = () => {
   }, []);
 
   if (loading) {
-    return <Loader width="100px" hexColor="ff00ff" />;
+    return <Loader width="100px" hexColor="ab987a" />;
   }
 
   return (
