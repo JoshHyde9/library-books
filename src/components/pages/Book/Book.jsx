@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import dayjs from "dayjs";
 
 import { Loader } from "../../Loader/Loader";
-import { Star } from "../../Icons/Star";
+import { BookInfo } from "../../BookInfo/BookInfo";
+
+import { cleanData } from "../../../util/cleanData";
 
 import styles from "./Book.module.scss";
-import { cleanData } from "../../../util/cleanData";
 
 export const Book = () => {
   const { bookId } = useParams();
@@ -51,32 +51,7 @@ export const Book = () => {
           alt={book.title}
         />
       </div>
-      <div className={styles.info}>
-        <h1>{book.title}</h1>
-        <div className={styles.more__info}>
-          <p>{dayjs(book.publishedDate).format("YYYY")}</p>
-          <span className={styles.spacer}>—</span>
-          <p>{book.authors.map((author) => author)}</p>
-          <span className={styles.spacer}>—</span>
-          {book.categories ? (
-            <p>{book.categories.map((category) => category)}</p>
-          ) : (
-            <p>No categories listed</p>
-          )}
-          <span className={styles.spacer}>—</span>
-          <div className={styles.rating}>
-            {book.averageRating ? (
-              <>
-                <Star size="24" fill="#FFD700" />
-                <p>{book.averageRating}</p>
-              </>
-            ) : (
-              <p>No ratings listed</p>
-            )}
-          </div>
-        </div>
-        <p className={styles.description}>{book.description}</p>
-      </div>
+      <BookInfo book={book} />
     </div>
   );
 };
