@@ -14,7 +14,7 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
     const fetchBooks = async () => {
       setBooks({ loading: true });
       const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${search}`
+        `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`
       );
 
       const data = await response.json();
