@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { cleanData } from "../../../util/cleanData";
 
@@ -10,6 +11,8 @@ import styles from "./Navbar.module.scss";
 export const Navbar = ({ search, setSearch, setBooks }) => {
   const navigate = useNavigate();
 
+  const [show, setShow] = useState(false);
+
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
@@ -17,6 +20,7 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
   const handleSubmit = (event) => {
     const fetchBooks = async () => {
       setBooks({ loading: true });
+      setShow(false);
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`
       );
@@ -41,15 +45,18 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
         <li>
           <Link to="/">Home</Link>
         </li>
+        <li onClick={() => setShow(!show)}>Search</li>
       </ul>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="Harry Potter and the..."
-        />
-        <button>Submit</button>
-      </form>
+      {show && (
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            onChange={handleChange}
+            type="text"
+            placeholder="Harry Potter and the..."
+          />
+          <button>Submit</button>
+        </form>
+      )}
     </nav>
   );
 };
