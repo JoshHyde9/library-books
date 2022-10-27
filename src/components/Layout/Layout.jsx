@@ -6,6 +6,9 @@ import styles from "./Layout.module.scss";
 
 export const BooksContext = createContext();
 
+/**
+ * @param {{children: React.ReactNode}} props
+ */
 export const Layout = ({ children }) => {
   const [search, setSearch] = useState("");
   const [books, setBooks] = useState({ books: null, loading: false });
