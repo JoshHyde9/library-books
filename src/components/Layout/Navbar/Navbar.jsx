@@ -5,7 +5,7 @@ import { cleanData } from "../../../util/cleanData";
 import styles from "./Navbar.module.scss";
 
 /**
- * @param {{search: string, setSearch: () => {}, setBooks: () => {}}} props
+ * @param {{search: string, setSearch: React.Dispatch<React.SetStateAction<string>>, setBooks: React.Dispatch<React.SetStateAction<{books: null, loading: boolean }>>}} props
  */
 export const Navbar = ({ search, setSearch, setBooks }) => {
   const navigate = useNavigate();
