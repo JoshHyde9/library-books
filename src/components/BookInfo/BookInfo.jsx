@@ -25,7 +25,7 @@ export const BookInfo = ({
       <div className={styles.more__info}>
         <p>{dayjs(publishedDate).format("YYYY")}</p>
         <span className={styles.spacer}>—</span>
-        <DisplayArray array={authors} type={authors} />
+        <DisplayArray array={authors} type="authors" />
         <span className={styles.spacer}>—</span>
         <DisplayArray array={categories} type="categories" />
         <span className={styles.spacer}>—</span>

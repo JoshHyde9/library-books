@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
-import { cleanData } from "../../util/cleanData";
+import { cleanData } from "../../../util/cleanData";
 
 import styles from "./Navbar.module.scss";
 

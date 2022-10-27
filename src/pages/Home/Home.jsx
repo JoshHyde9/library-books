@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { BookCard } from "../../BookCard/BookCard";
-import { BooksContext } from "../../Layout/Layout";
-import { Loader } from "../../Loader/Loader";
+import { BookCard } from "../../components/BookCard/BookCard";
+import { BooksContext } from "../../components/Layout/Layout";
+import { Loader } from "../../components/Loader/Loader";
 
 import styles from "./Home.module.scss";
 
