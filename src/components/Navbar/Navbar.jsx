@@ -4,6 +4,9 @@ import { cleanData } from "../../util/cleanData";
 
 import styles from "./Navbar.module.scss";
 
+/**
+ * @param {{search: string, setSearch: () => {}, setBooks: () => {}}} props
+ */
 export const Navbar = ({ search, setSearch, setBooks }) => {
   const navigate = useNavigate();
 
