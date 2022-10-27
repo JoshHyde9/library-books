@@ -18,6 +18,5 @@ export const cleanData = (data) => {
   }
 
   data.description = data.description.replace(REMOVE_HTML_TAGS, "");
-  console.log(data);
   return data;
 };
