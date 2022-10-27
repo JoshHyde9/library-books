@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
+import { cleanData } from "../../util/cleanData";
 
 import styles from "./Navbar.module.scss";
 
@@ -18,7 +19,9 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
       );
 
       const data = await response.json();
-      setBooks({ data: data.items, loading: false });
+      const cleanedData = cleanData(data.items);
+
+      setBooks({ data: cleanedData, loading: false });
 
       if (!navigate("/")) {
         navigate("/");

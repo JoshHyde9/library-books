@@ -6,6 +6,7 @@ import { Loader } from "../../Loader/Loader";
 import { Star } from "../../Icons/Star";
 
 import styles from "./Book.module.scss";
+import { cleanData } from "../../../util/cleanData";
 
 export const Book = () => {
   const { bookId } = useParams();
@@ -21,7 +22,10 @@ export const Book = () => {
         );
 
         const data = await response.json();
-        setBook(data.volumeInfo);
+
+        const cleanedData = cleanData(data.volumeInfo);
+
+        setBook(cleanedData);
       } catch (error) {
         console.log(error);
       } finally {
@@ -38,7 +42,14 @@ export const Book = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cover}>
-        <img src={book.imageLinks.thumbnail} alt={book.title} />
+        <img
+          src={
+            book.imageLinks
+              ? book.imageLinks.thumbnail
+              : "https://placehold.jp/989898/ffffff/250x350.png?text=Cover%20not%20found"
+          }
+          alt={book.title}
+        />
       </div>
       <div className={styles.info}>
         <h1>{book.title}</h1>
