@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Loader } from "../../Loader/Loader";
-import { BookInfo } from "../../BookInfo/BookInfo";
+import { Loader } from "../../components/Loader/Loader";
+import { BookInfo } from "../../components/BookInfo/BookInfo";
 
-import { cleanData } from "../../../util/cleanData";
+import { cleanData } from "../../util/cleanData";
 
 import styles from "./Book.module.scss";
 
