@@ -12,12 +12,20 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
   const navigate = useNavigate();
 
   const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (search.trim() === "") {
+      setSearch("");
+      return setError("Please provide a valid search");
+    }
+
     const fetchBooks = async () => {
       setBooks({ loading: true });
       setShow(false);
@@ -29,6 +37,8 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
       const cleanedData = cleanData(data.items);
 
       setBooks({ data: cleanedData, loading: false });
+      setError("");
+      setSearch("");
 
       if (!navigate("/")) {
         navigate("/");
@@ -36,7 +46,6 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
     };
 
     fetchBooks();
-    event.preventDefault();
   };
 
   return (
@@ -45,17 +54,27 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li onClick={() => setShow(!show)}>Search</li>
+        <li
+          onClick={() => {
+            setShow(!show);
+            setError("");
+          }}
+        >
+          Search
+        </li>
       </ul>
       {show && (
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <input
-            onChange={handleChange}
-            type="text"
-            placeholder="Harry Potter and the..."
-          />
-          <button>Submit</button>
-        </form>
+        <>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <input
+              onChange={handleChange}
+              type="text"
+              placeholder="Harry Potter and the..."
+            />
+            <button>Submit</button>
+          </form>
+          {error && <p>{error}</p>}
+        </>
       )}
     </nav>
   );
