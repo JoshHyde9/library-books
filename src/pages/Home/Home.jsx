@@ -17,12 +17,12 @@ export const Home = () => {
     return <p>Try searching for a book.</p>;
   }
 
-  if (!data) {
-    return <p>No books could be found.</p>;
-  }
-
   if (loading && !data) {
     return <Loader width="100px" hexColor="ab987a" />;
+  }
+
+  if (!data) {
+    return <p>No books could be found.</p>;
   }
 
   return (
