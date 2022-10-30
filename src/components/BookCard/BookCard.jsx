@@ -4,11 +4,10 @@ import dayjs from "dayjs";
 import styles from "./BookCard.module.scss";
 
 /**
- * @param {{volumeInfo: {imageLinks: string[], title: string, publisher: string, publishedDate: string, description: string}}} props
+ * @param {{volumeInfo: {imageLinks: string[], title: string, authors: string[], publishedDate: string, description: string}}} props
  */
 export const BookCard = ({ volumeInfo }) => {
-  const { imageLinks, title, publisher, publishedDate, description } =
-    volumeInfo;
+  const { imageLinks, title, authors, publishedDate, description } = volumeInfo;
 
   return (
     <div className={styles.gallery__item}>
@@ -23,7 +22,8 @@ export const BookCard = ({ volumeInfo }) => {
       <div className={styles.gallery__item___info}>
         <h2>{title}</h2>
         <h3>
-          {publisher} {publisher && "—"} {dayjs(publishedDate).format("YYYY")}
+          {authors ? `${authors[0]} —` : ""}{" "}
+          {dayjs(publishedDate).format("YYYY")}
         </h3>
         <p>{description && `${description.slice(0, 150)}...`}</p>
       </div>
