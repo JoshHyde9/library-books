@@ -1,9 +1,29 @@
+@use "../../scss/partials/variables" as *;
+@use "../../scss/partials/mixins" as *;
+
 .info {
-  width: 70%;
+  width: 90%;
+
+  @include media-queries($md, 9999999px) {
+    width: 90%;
+  }
+
+  @include media-queries($lg, 9999999px) {
+    width: 70%;
+  }
 
   .more__info {
+    margin-top: 0.5rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    @include media-queries($md, 9999999px) {
+      text-align: left;
+      flex-direction: row;
+      align-items: stretch;
+    }
 
     .rating {
       display: flex;
