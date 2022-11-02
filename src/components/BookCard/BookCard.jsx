@@ -36,11 +36,15 @@ export const BookCard = ({ volumeInfo }) => {
           {dayjs(publishedDate).format("YYYY")}
         </h3>
         <p>
-          {description
-            ? description.length > 150
-              ? `${description.slice(0, 150)}...`
-              : description
-            : "No description listed"}
+          {description ? (
+            description.length > 150 ? (
+              `${description.substring(0, 150)}...`
+            ) : (
+              description
+            )
+          ) : (
+            <p>No description was found</p>
+          )}
         </p>
       </div>
     </div>
