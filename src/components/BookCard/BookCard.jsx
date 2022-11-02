@@ -15,17 +15,33 @@ export const BookCard = ({ volumeInfo }) => {
         src={
           imageLinks
             ? imageLinks.thumbnail
-            : "https://placehold.jp/989898/ffffff/250x350.png?text=Cover%20not%20found"
+            : "https://placehold.jp/989898/ffffff/150x200.png?text=Cover%20not%20found"
         }
         alt={title}
       />
       <div className={styles.gallery__item___info}>
-        <h2>{title}</h2>
+        <h2>
+          {title ? (
+            title.length > 25 ? (
+              `${title.substring(0, 25)}...`
+            ) : (
+              title
+            )
+          ) : (
+            <p>No title was found</p>
+          )}
+        </h2>
         <h3>
           {authors ? `${authors[0]} —` : ""}{" "}
           {dayjs(publishedDate).format("YYYY")}
         </h3>
-        <p>{description && `${description.slice(0, 150)}...`}</p>
+        <p>
+          {description
+            ? description.length > 150
+              ? `${description.slice(0, 150)}...`
+              : description
+            : "No description listed"}
+        </p>
       </div>
     </div>
   );
