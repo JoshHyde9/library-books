@@ -1,0 +1,57 @@
+@use "../../scss/partials/variables" as *;
+@use "../../scss/partials/mixins" as *;
+
+.heading {
+  margin-bottom: 1rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  margin: 0 1rem;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  @include media-queries($md, 999999999px) {
+    margin: 0 2rem;
+  }
+
+  @include media-queries($md, $lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-queries($lg, $xl) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-queries($xl, $xxl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media-queries($xxl, 999999999px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gallery__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 1rem;
+    height: 30rem;
+    transition: all ease-in-out 200ms;
+
+    &:hover {
+      box-shadow: #ab987aff 0px 1px 3px 0px, #ab987add 0px 1px 2px 0px;
+    }
+
+    &___info {
+      margin-top: 0.75rem;
+    }
+  }
+}

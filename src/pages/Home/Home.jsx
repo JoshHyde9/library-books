@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { BookCard } from "../../components/BookCard/BookCard";
 import { BooksContext } from "../../components/Layout/Layout";
 import { Loader } from "../../components/Loader/Loader";
+import { RandomSearch } from "../../components/RandomSearch/RandomSearch";
 
 import styles from "./Home.module.scss";
 
@@ -14,7 +15,7 @@ export const Home = () => {
   const { data, loading } = books;
 
   if (!data && !loading) {
-    return <p>Try searching for a book.</p>;
+    return <RandomSearch />;
   }
 
   if (loading) {
