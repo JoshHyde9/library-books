@@ -47,7 +47,7 @@ export const BookInfo = ({
 
 BookInfo.propTypes = {
   book: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     publishedDate: PropTypes.string.isRequired,
     authors: PropTypes.arrayOf(PropTypes.string),
     averageRating: PropTypes.number,
