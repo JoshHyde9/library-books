@@ -28,12 +28,19 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
 
     const fetchBooks = async () => {
       setBooks({ loading: true });
-      setShow(false);
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`
       );
 
       const data = await response.json();
+
+      if (!data.items) {
+        setBooks({ loadng: false });
+        return setError(
+          `No books were found with "${search}" as a search term.`
+        );
+      }
+
       const cleanedData = cleanData(data.items);
 
       setBooks({ data: cleanedData, loading: false });
@@ -73,7 +80,7 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
             />
             <button>Submit</button>
           </form>
-          {error && <p>{error}</p>}
+          {error && <p className={styles.error}>{error}</p>}
         </>
       )}
     </nav>
