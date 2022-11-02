@@ -45,7 +45,7 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
 
       setBooks({ data: cleanedData, loading: false });
       setError("");
-      setSearch("");
+      setShow(false);
 
       if (!navigate("/")) {
         navigate("/");
