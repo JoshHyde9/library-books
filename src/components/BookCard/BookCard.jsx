@@ -21,30 +21,22 @@ export const BookCard = ({ volumeInfo }) => {
       />
       <div className={styles.gallery__item___info}>
         <h2>
-          {title ? (
-            title.length > 25 ? (
-              `${title.substring(0, 25)}...`
-            ) : (
-              title
-            )
-          ) : (
-            <p>No title was found</p>
-          )}
+          {title
+            ? title.length > 25
+              ? `${title.substring(0, 25)}...`
+              : title
+            : "No title was found"}
         </h2>
         <h3>
           {authors ? `${authors[0]} —` : ""}{" "}
           {dayjs(publishedDate).format("YYYY")}
         </h3>
         <p>
-          {description ? (
-            description.length > 150 ? (
-              `${description.substring(0, 150)}...`
-            ) : (
-              description
-            )
-          ) : (
-            <p>No description was found</p>
-          )}
+          {description
+            ? description.length > 150
+              ? `${description.substring(0, 150)}...`
+              : description
+            : "No description was found"}
         </p>
       </div>
     </div>
