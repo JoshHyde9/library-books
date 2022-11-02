@@ -74,6 +74,7 @@ export const Navbar = ({ search, setSearch, setBooks }) => {
         <>
           <form onSubmit={handleSubmit} className={styles.form}>
             <input
+              autoFocus
               onChange={handleChange}
               type="text"
               placeholder="Harry Potter and the..."
